@@ -1,0 +1,3 @@
+export const MOBILE_BREAKPOINT = 768
+export const TABLET_BREAKPOINT = 900
+export const SCREEN_MAX_WIDTH = 1360
