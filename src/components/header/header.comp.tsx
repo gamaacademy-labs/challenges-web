@@ -2,15 +2,11 @@ import { Box, InputSearch, Icon, Typography } from '@gama-academy/smash-web';
 import Link from 'next/link';
 import React from 'react';
 import Logo from 'img/Logo.png';
-import * as S from './styles';
+import * as S from './header.styles';
 import Image from 'next/image'
 
 
-// import { IconName } from "react-icons/bs";
-
-// import "./styles.css";
-
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <S.StyledHeader  >
       <Box >
@@ -19,19 +15,14 @@ const Header: React.FC = () => {
         {/* <h2>gama academy</h2> */}
 
       </Box>
-
-
-
       <Box
 
-        width={600} >
+        width={440} height={32}>
 
         <InputSearch
-          label="Lorem Ipsum"
-          onChangeValue={function noRefCheck() { }}
-          onClear={function noRefCheck() { }}
-          placeholder="Search something..."
-        />
+          // onChangeValue={function noRefCheck() { } }
+          // onClear={function noRefCheck() { } }
+          placeholder="Digite uma palavra-chave" m={undefined} margin={undefined} mt={undefined} marginTop={undefined} mb={undefined} marginBottom={undefined} ml={undefined} marginLeft={undefined} mr={undefined} marginRight={undefined} my={undefined} marginY={undefined} mx={undefined} marginX={undefined}        />
       </Box>
 
       <Box>
@@ -68,4 +59,3 @@ const Header: React.FC = () => {
   );
 }
 
-export default Header;
