@@ -1,11 +1,12 @@
-/* html,
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: roboto !important;
 }
-
+/* 
 a {
   color: inherit;
   text-decoration: none;
