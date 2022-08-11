@@ -11,9 +11,7 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -24,3 +22,9 @@ a {
     background: black;
   }
 } */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
