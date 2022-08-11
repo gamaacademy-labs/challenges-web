@@ -6,6 +6,14 @@ body {
   margin: 0;
   font-family: roboto !important;
 }
+
+/* lista desafios hover */
+.hoverEffect:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #8d52e5;
+  color: azure;
+}
+
 /* 
 a {
   color: inherit;
