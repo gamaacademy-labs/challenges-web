@@ -7,44 +7,41 @@ import Image from 'next/image'
 
 export const Header: React.FC = () => {
   return (
-    <S.StyledHeader dir="row"  >
+    <S.StyledHeader dir="row" width="100%" alignItems="center" justifyContent="space-between" padding="4" mb="1">
       <Box >
-        <Image src="/img/Logo.png"  width={120} alt="Logo" height={30} />
+        <Image src="/img/Logo.png" width={120} alt="Logo" height={30} />
       </Box>
       <Box
         width={440} height={32}>
         <InputSearch
-          placeholder="Digite uma palavra-chave"  
-          onChange={()=>{}}
-              />
+          placeholder="Digite uma palavra-chave"
+          onChange={() => { }}
+        />
       </Box>
 
-      <Box dir="row">
-          <Box>
-            <Link href={"/"}>
-              <Typography type='tips'> Início</Typography >
-            </Link>
-          </Box>
+      <Box dir="row" alignItems="center" >
+        <Box>
+          <Link href={"/"}>
+            <Typography type='tips'> Início</Typography >
+          </Link>
+        </Box>
 
-          <Box>
-            <Typography type='tips'> Carreiras</Typography >
-          </Box>
-          <Box>
-            <Icon.Material name="apps" color="secondary.4" size={24} />
+        <Box ml="2">
+          <Typography type='tips'> Carreiras</Typography >
+        </Box>
+        <Box ml="2">
+          <Icon.Material name="apps" color="secondary.4" size={24} />
 
-          </Box>
-          <Box>
+        </Box>
+        <Box ml="2">
 
-            <Icon.Material name="notifications" color="secondary.4" size={24}  type="round"/>
+          <Icon.Material name="notifications" color="secondary.4" size={24} type="round" />
 
-          </Box>
+        </Box>
+        <S.StyledAvatar ml="2">
 
-          <Box>
-
-          </Box>
-       
+        </S.StyledAvatar>
       </Box>
-
 
     </S.StyledHeader >
   );
