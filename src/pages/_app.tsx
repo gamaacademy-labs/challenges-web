@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { createTheme, SmashGlobalStyle } from '@gama-academy/smash-web'
 import { ThemeProvider }  from 'styled-components'
-import {Header} from '../components/header'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const theme = createTheme()

@@ -1,17 +1,19 @@
 import styled from 'styled-components';
-import { Box } from '@gama-academy/smash-web';
+import {Container }from 'react-bootstrap/';
 
-export const StyledHeader = styled(Box)`
-
-
-`
-export const StyledAvatar = styled(Box)`
-
+export const StyledHeader = styled(Container)`
+    
 `
 
-// export const StyledNavItem = styled.div`
-// margin-left: 1rem;
+export const IconsRemove = styled.div`
+display: flex;
+@media only screen and (max-width: 768px) {
+    display: none;
+}
+`
 
-// `
-// export const StyledNav = styled.nav`
-// 
+export const IconsShow = styled.div`
+@media only screen and (min-width: 768px) {
+    display: none;
+}
+`

@@ -17,11 +17,11 @@ const ChallengesTemplate = ({ challenges }: { challenges: IChallenges[] }) => {
               width="75vw"
               padding="4"
               borderRadius="10px"
-              border={"1px solid #D7DBDA"}
-              justifyContent={"space-between"}
-              alignment={"center"}
-              margin={4}
-              dir={"row"}
+              border="1px solid #D7DBDA"
+              justifyContent="space-between"
+              alignment="center"
+              margin="4"
+              dir="row"
               key={challenge.id}
             >
               <Typography fontFamily={"raniway"} tag="p" align="center">
@@ -34,7 +34,7 @@ const ChallengesTemplate = ({ challenges }: { challenges: IChallenges[] }) => {
               </Box>
             </Box>
           );
-        })}
+        }).reverse()}
       </Box>
     </>
   );

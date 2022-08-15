@@ -8,13 +8,13 @@ body {
 
 a, p, h1, h2, h3, h4, h5, h6, ::placeholder {
     font-family: Raleway !important;
+    color: black !important;
 }
 
 /* lista desafios hover */
 .hoverEffect:hover {
   transition: all 0.3s ease-in-out;
   background-color: #8d52e5;
-  color: azure;
 }
 
 a {
