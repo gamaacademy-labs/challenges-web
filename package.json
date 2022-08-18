@@ -12,8 +12,10 @@
     "@gama-academy/smash-web": "^2.10.0",
     "axios": "^0.27.2",
     "big.js": "^6.2.1",
+    "bootstrap": "^5.2.0",
     "next": "12.2.4",
     "react": "17.0.2",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.5",
     "styled-system": "^5.1.5"

@@ -1,9 +1,9 @@
-import * as React from 'react'
-
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { createTheme, SmashGlobalStyle } from '@gama-academy/smash-web'
 import { ThemeProvider }  from 'styled-components'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const theme = createTheme()
 
