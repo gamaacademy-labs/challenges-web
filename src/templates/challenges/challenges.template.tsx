@@ -1,8 +1,9 @@
 import { Box, Button, Typography } from "@gama-academy/smash-web";
 import { Header } from "../../components/header";
 import { IChallenges } from "./index";
+import { ChallengesProps } from './challenges.types';
 
-const ChallengesTemplate = ({ challenges }: { challenges: IChallenges[] }) => {
+const ChallengesTemplate = ({ challenges }: ChallengesProps) => {
   return (
     <>
       <Header />
