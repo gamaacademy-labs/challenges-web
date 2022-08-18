@@ -1,15 +1,13 @@
 import * as S from './header.styles';
 import Image from 'next/image'
 import { Box, InputSearch, Icon, Typography } from '@gama-academy/smash-web';
-import { Nav, Navbar } from 'react-bootstrap/';
-import { StyledHeader } from './header.styles';
+import { Container, Nav, Navbar } from 'react-bootstrap/';
 
 
 export const Header = () => {
   return (
-
     <Navbar expand="md" style={{ borderBottom: '1px solid #e5e5e5', marginBottom: '50px' }}>
-      <StyledHeader >
+      <Container >
         <Navbar.Brand href="#home">
           <Image src="/img/Logo.png" width="135" alt="Logo" height="30" />
         </Navbar.Brand>
@@ -64,7 +62,7 @@ export const Header = () => {
 
           </Nav>
         </Navbar.Collapse>
-      </StyledHeader>
+      </Container>
     </Navbar>
   );
 }
