@@ -10,7 +10,7 @@ export const Header = () => {
 
     <Navbar expand="md" style={{ borderBottom: '1px solid #e5e5e5', marginBottom: '50px' }}>
       <StyledHeader >
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="home">
           <Image src="/img/Logo.png" width="135" alt="Logo" height="30" />
         </Navbar.Brand>
 

@@ -4,6 +4,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-colo: #F5F5F5;
 }
 
 a, p, h1, h2, h3, h4, h5, h6, ::placeholder {
@@ -21,3 +22,9 @@ a {
   text-decoration: none;
 }
 
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
