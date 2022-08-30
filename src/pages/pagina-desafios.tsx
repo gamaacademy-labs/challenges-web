@@ -6,6 +6,7 @@ import ChallengesPageTempletes from '../templates/challenges-page/challenges-pag
 const PaginaDesafios = () => {
     return (
         <ChallengesPageTempletes/>
+        
 
     )
 }
