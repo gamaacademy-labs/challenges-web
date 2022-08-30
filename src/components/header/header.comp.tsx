@@ -35,11 +35,8 @@ export const Header = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ border: 'none' }} className="shadow-none" />
         </Box>
-
-
         <Navbar.Collapse style={{ flexGrow: '0', }} id="basic-navbar-nav" >
           <Nav className="me-auto">
-
             <Nav.Link href="#home">Inicio</Nav.Link>
             <Nav.Link href="#link">Carreiras</Nav.Link>
 
@@ -54,7 +51,6 @@ export const Header = () => {
                 </Box>
               </Nav.Link>
             </S.IconsRemove>
-
             <S.IconsRemove>
               <Nav.Link href="#link">
                 <Box size={24} backgroundColor="black" borderRadius="50%">
