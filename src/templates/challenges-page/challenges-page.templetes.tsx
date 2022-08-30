@@ -1,46 +1,36 @@
-import { Box, MaterialIcon,  Tag, Tooltip, Typography } from '@gama-academy/smash-web'
-import{ Entregaveis} from './entregaveis.page.desafios'
-import {SidebarPageDesafios } from './sidebar.page.desafios'
+import { Box, MaterialIcon, Tag, Tooltip, Typography } from '@gama-academy/smash-web'
+import * as S from './styles';
+import { SidebarPageDesafios } from './sidebar.page.desafios'
+import { BsFillBarChartFill } from 'react-icons/bs';
 import React from 'react'
 import { Header } from '../../components/header';
+import { Footer } from "../../components/footer";
 import Image from 'next/image'
+import Link from 'next/link';
+import { Deliverables } from './components/deliverables-list/deliverables-list.comp';
 
 const ChallengesPageTempletes = () => {
 
   return (
     <Box>
       <Header />
-      < Box  dir="row"
+      < Box dir="row"
+        style={{ marginBottom: "8%" }}
         justifyContent="center"
       >
-        <Box width="858px"
-      mr={5}
-        
-        >
-          <Box dir="row"
-
-          >
-            <Box>
-              <MaterialIcon
-
-                height={26}
-                name="extension"
-                shape="round"
-                shapeBackground="green.2"
-                size={18}
-                color="brand.primary"
-                width={24}
-              />
-
+        <Box width="858px" mr={5} >
+          <Box dir="row">
+            <Box
+              width="24px"
+              height="24px"
+              borderRadius="4" justifyContent="center" alignItems="center" backgroundColor="brand.primary"  >
+              <Image src="/img/hipsterIcon.png" width="16" alt="Logo" height="5" />
             </Box>
-
             <Box>
 
               <Typography
-                ml="4"
-
+                ml="2"
                 type="title"
-
               >
                 Quem tem dados é rei!
               </Typography>
@@ -50,20 +40,14 @@ const ChallengesPageTempletes = () => {
           <Box
             mt="2"
           >
-            {/* <MaterialIcon name="hipster" /> */}
 
             <Typography
               type="description"
             >
               Neste exercício construiremos um clone perfeito da interface do AirBnb. escrever algo para o seu público, como utilizar tudo isso em e-mails, formulários, notificações e outros gatilhos.
-
-
             </Typography>
-
-
             <Typography
               type="description"
-
               mt="4"
             >
               Neste exercício construiremos um clone perfeito da interface do AirBnb. escrever algo para o seu público, como utilizar tudo isso em e- Além de falarmos sobre SEO, que são estratégias para potencializar e melhorar o posicionamento de um site, e HCI, que é um conjunto de estudos que envolve a interação entre pessoas (usuários) e equipamentos.
@@ -72,40 +56,19 @@ const ChallengesPageTempletes = () => {
           </Box>
 
           <Box dir="row" mt="4" pb="3"
-            style={{ borderBottom: 'solid #e5e5e5' }}
-          >
+            alignItems="center"
+            style={{ borderBottom: 'solid #e5e5e5' }}>
 
-            <Tag
-              borderRadius="4"
-              align="center"
-              color="brand.secondary"
-              tag="span"
-              pl="3"
-              pr="3"
-            >
-              SEO
-            </Tag>
-            <Tag
-              borderRadius="4"
-              align="center"
-              color="brand.secondary"
-              tag="span"
-              m="1"
-            >
-              UI
-            </Tag>
-            <Tag
-              borderRadius="4"
-              align="center"
-              color="brand.secondary"
-              tag="span"
-              m="1"
-            >
-
-
-              UX
-            </Tag>
-
+            <S.Tags>
+            SEO
+            </S.Tags>
+            <S.Tags>
+            UI
+            </S.Tags>
+            <S.Tags>
+            UX
+            </S.Tags>
+            
           </Box>
           <Box dir="row" justifyContent="space-between" pt="3" pb="3" style={{ borderBottom: 'solid #e5e5e5' }}>
             <Box dir="row" >
@@ -129,10 +92,10 @@ const ChallengesPageTempletes = () => {
                 >
                   <Box>
                     <Box dir="row" alignItems="center" mr="3"  >
-                      <Box>
-                        <MaterialIcon name="emoji_events" mr="1"
-                          color="brand.secondary"
-                        />
+                      <Box color='secondary-4' mr="2">
+                        <BsFillBarChartFill color='purple' />
+
+
                       </Box>
                       <Box>
                         <Typography type="title" fontSize="1" >Nível</Typography>
@@ -141,8 +104,6 @@ const ChallengesPageTempletes = () => {
                     </Box>
                   </Box>
                 </Tooltip>
-
-
               </Box>
 
               <Box
@@ -150,7 +111,7 @@ const ChallengesPageTempletes = () => {
                 mr="3"
                 alignItems="center"
                 justifyContent="center"
-              
+
               >
 
                 <Tooltip
@@ -207,18 +168,13 @@ const ChallengesPageTempletes = () => {
             </Box>
 
             <Box >
-
               <Box dir="row">
-
-
                 <MaterialIcon
                   mr="1" name="share"
                   color="brand.secondary"
                 />
 
-                <Box >
-
-
+                <Box cursor="pointer">
                   <a
                     className='myWonderfulButton'
                     onClick={
@@ -249,62 +205,99 @@ const ChallengesPageTempletes = () => {
           <Typography pt="5" pb="4" fontWeight="bold" color="brand.secondary">
             ENTREGÁVEIS
           </Typography>
+          <Deliverables
+            title="{{Nome do entregável}}"
+            time="Reserve 2 horas"
+            description="Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla"
 
-          
-
-          <Entregaveis
-          title="{{Nome do entregável}}"
-         time="Reserve 2 horas"
-          description="Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla"
-          
           />
-          <Entregaveis
-          title="{{Nome do entregável}}"
-        time="Reserve 2 horas"
-          description="Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla"
-          
+          <Deliverables
+            title="{{Nome do entregável}}"
+            time="Reserve 2 horas"
+            description="Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla"
           />
-
         </Box>
-
         <Box width="300"
-          border="1px solid black"
           margin="2"
           padding="2"
-
         >
-   
-<Box
-style={{ border: '8px solid #68DE5A', marginBottom: '50px',
-width: "300px",
-height: "200px"
- }}
+          <Box
+            style={{
+              border: '8px solid #68DE5A', marginBottom: '50px',
+              width: "300px",
+              height: "200px",
+            }}
+            borderRadius={8}
+          >
+            <Image src="/img/image.png" width="300" alt="Logo" height="200" />
+          </Box>
 
-borderRadius={8}
->
-<Image src="/img/image.png" width="300" alt="Logo" height="200" />
-</Box>
-<SidebarPageDesafios
-user_name='Thomas Lima'
-ranking={210}
-/>
-<SidebarPageDesafios
-user_name='Thomas Lima'
-ranking={210}
-/>
-<SidebarPageDesafios
-user_name='Thomas Lima'
-ranking={210}
-/>
+          <Typography fontWeight="bold" color="brand.secondary">
+            RANKING
+          </Typography>
+          <SidebarPageDesafios
+            user_name='Thomas Lima'
+            ranking={210}
+          />
+          <SidebarPageDesafios
+            user_name='Thomas Lima'
+            ranking={210}
+          />
+          <SidebarPageDesafios
+            user_name='Thomas Lima'
+            ranking={210}
+          />
+          <Box >
+            <Box
+              dir="row"
+              justifyContent="end"
+              pt="1"
+              cursor="pointer"
+            >
+              <Link href="/" >
+                <Typography fontWeight="bold" color="brand.secondary"
+                >
+                  Ver ranking completo
+                </Typography>
+
+              </Link>
+            </Box>
+          </Box>
+        </Box>
+
+      </Box>
+      <Box dir="row"
+        // position="fixed"
+        bottom={0}
+        justifyContent="center"
+
+        backgroundColor="secondary.4"
+      >
+        <Box
+          justifyContent="center"
+          backgroundColor="secondary.4">
+
+          <Box
+
+            style={{
+              width: "1254px",
+              height: "72px",
 
 
-</Box>
+            }}
+            //  
+            alignItems="center"
+            dir="row"
+            justifyContent="end"
+          >
+            <Footer />
+          </Box>
+        </Box>
 
 
+      </Box>
 
-
- </Box>
-  </Box>
+    </Box>
 
   )
 }

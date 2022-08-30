@@ -1,9 +1,9 @@
 
 import { Box, MaterialIcon, Typography } from '@gama-academy/smash-web'
 
-import { EntregaveisProps } from './challenges.types';
+import { DeliverableProps } from '../../challenges.types';
 
-export const Entregaveis = ({ title, time, description }: EntregaveisProps) => { 
+export const Deliverables = ({ title, time, description }: DeliverableProps) => { 
   return (
   <Box padding={3}
     borderRadius="3"

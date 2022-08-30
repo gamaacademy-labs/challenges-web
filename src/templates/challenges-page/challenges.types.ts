@@ -1,6 +1,6 @@
 
 
-export interface EntregaveisProps {
+export interface DeliverableProps {
     title:string;
     time:string;
     description:string;

@@ -46,13 +46,8 @@ export const SidebarPageDesafios = ({ user_name, ranking}:RankingProps ) => {
 
           <Box>
       </Box>
-
-
-
-        
         </Box>
 
-        <Typography type="title">{}</Typography>
         <Box dir="row" ml={4}
          
         >
