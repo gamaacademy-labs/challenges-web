@@ -2,7 +2,7 @@
 
 export interface DeliverableProps {
     title:string;
-    time:string;
+    time?:string;
     description:string;
   }
   export interface RankingProps{

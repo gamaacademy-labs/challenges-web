@@ -36,7 +36,7 @@ export const SidebarPageDesafios = ({ user_name, ranking}:RankingProps ) => {
 
             </Box >         
             <Box >
-            <Typography type="tips">{ user_name}</Typography>
+            <Typography type="tips">{user_name}</Typography>
               
             </Box>
             <Box>

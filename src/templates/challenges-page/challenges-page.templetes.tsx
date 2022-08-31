@@ -2,14 +2,16 @@ import { Box, MaterialIcon, Tag, Tooltip, Typography } from '@gama-academy/smash
 import * as S from './styles';
 import { SidebarPageDesafios } from './sidebar.page.desafios'
 import { BsFillBarChartFill } from 'react-icons/bs';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from '../../components/header';
 import { Footer } from "../../components/footer";
 import Image from 'next/image'
 import Link from 'next/link';
 import { Deliverables } from './components/deliverables-list/deliverables-list.comp';
+import { getChallenges } from '../../services/challenges';
 
 const ChallengesPageTempletes = () => {
+
 
   return (
     <Box>
@@ -92,8 +94,8 @@ const ChallengesPageTempletes = () => {
                 >
                   <Box>
                     <Box dir="row" alignItems="center" mr="3"  >
-                      <Box color='secondary-4' mr="2">
-                        <BsFillBarChartFill color='purple' />
+                      <Box  mr="2">
+                        <BsFillBarChartFill color='secondary-4' />
 
 
                       </Box>
