@@ -8,10 +8,10 @@ interface ModalProps {
   toggle: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isShowing, toggle, children }) => { 
+const Modal: React.FC<ModalProps> = ({ isShowing, toggle, children }) => {
   useEffect(() => {
-    const listner = function (e: KeyboardEvent ) {
-      if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27 ) {
+    const listner = function (e: KeyboardEvent) {
+      if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -45,26 +45,26 @@ interface ModalHeaderProps {
 }
 
 export const ModalHeader: React.FC<ModalHeaderProps> = ({ toggle, children }) => (
-    <S.ModalHeader>
-        {children }
+  <S.ModalHeader>
+    {children}
     <S.ModalButtonClose
-            data-dismiss="modal" 
-        onClick={toggle}
+      data-dismiss="modal"
+      onClick={toggle}
     >
-    x
-    </S.ModalButtonClose>    
-    </S.ModalHeader>
+      x
+    </S.ModalButtonClose>
+  </S.ModalHeader>
 )
 
 export const ModalBody: React.FC = ({ children }) => (
-    <S.ModalBody>
-        {children}
-    </S.ModalBody>
+  <S.ModalBody>
+    {children}
+  </S.ModalBody>
 )
 
 export const ModalFooter: React.FC = ({ children }) => (
-    <S.ModalFooter>
-        {children}
+  <S.ModalFooter>
+    {children}
   </S.ModalFooter>
 )
 

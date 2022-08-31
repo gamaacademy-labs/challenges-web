@@ -1,13 +1,14 @@
-import { ChallengeTemplate } from '../templates/challenge/challenge.template';
+
+import React from 'react'
+import ChallengesPageTempletes from '../templates/challenges-page/challenges-page.templetes';
+import Modal, { ModalBody, ModalFooter, ModalHeader, useModal } from '../templates/challenges-page/components/modal/modal.comp';
 
 
-const ChallengesPage = () => {
+const PaginaDesafios = () => {
     return (
-        <>
-        <ChallengeTemplate/>
-        </>
-     
+  
+
     )
 }
 
-export default ChallengesPage;
+export default PaginaDesafios;

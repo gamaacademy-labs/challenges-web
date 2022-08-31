@@ -167,13 +167,11 @@ const StartChallenges = () => {
               </Button>
 
               <Modal {...{ isShowing, toggle }}>
-              <ModalHeader {...{toggle}}>
-              <Image src="/img/ilustracao-modal.png" width="150" alt="ilustracao-modal" height="135" />
-              </ModalHeader>
+                <ModalHeader {...{ toggle }}>
+                  <Image src="/img/ilustracao-modal.png" width="150" alt="ilustracao-modal" height="135" />
+                </ModalHeader>
 
-               
-
-                <Box justifyItems="center"  pr="12"  pl="12" dir="row" style={{ textAlign: "center",}}
+                <Box justifyItems="center" pr="12" pl="12" dir="row" style={{ textAlign: "center", }}
                 >
                   <ModalBody>
                     <Typography type="title" margin="2" >Adicione os entregáveis</Typography>

@@ -43,7 +43,7 @@ export const Modal = styled.div`
   text-align: center;
   border-radius: 4px;
 
-`  
+`
 
 export const ModalHeader = styled.div`
   display: flex;
@@ -52,24 +52,24 @@ export const ModalHeader = styled.div`
   font-weight: bold;
   display: flex;
   text-align: center;
-`  
-export const ModalButtonClose  = styled.button`
+`
+export const ModalButtonClose = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
   font-size: 16px;
-`  
-export const ModalBody   = styled.div`
+`
+export const ModalBody = styled.div`
 justify-content: center;
  text-align: center;
   padding: 8px 0;
-`  
-export const ModalFooter  = styled.div`
+`
+export const ModalFooter = styled.div`
    display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 8px 0;
-`  
+`
 
 
 
