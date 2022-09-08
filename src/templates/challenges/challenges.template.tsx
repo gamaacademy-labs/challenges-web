@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@gama-academy/smash-web";
 import { Header } from "../../components/header";
-import { IChallenges } from "./index";
+import { Challenge } from "../../services/challenges/challenges.types";
 import { ChallengesProps } from './challenges.types';
 
 const ChallengesTemplate = ({ challenges }: ChallengesProps) => {
@@ -11,7 +11,7 @@ const ChallengesTemplate = ({ challenges }: ChallengesProps) => {
         <h1>Desafios</h1>
       </Typography>
       <Box alignment="center" margin="lg" dir="column">
-        {challenges.map((challenge: IChallenges) => {
+        {challenges.map((challenge: Challenge) => {
           return (
             <Box
               className="hoverEffect"
@@ -30,7 +30,7 @@ const ChallengesTemplate = ({ challenges }: ChallengesProps) => {
               </Typography>
               <Box>
                 <Button onClick={() => {}} buttonType="button" size="1">
-                  Iniciar desafio
+                  Ver desafio
                 </Button>
               </Box>
             </Box>

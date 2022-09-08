@@ -1,7 +1,7 @@
-import axios from 'axios'
 import ChallengesTemplate from '../templates/challenges/challenges.template'
 import { GetServerSideProps } from 'next'
-import { IChallenges, ChallengesProps } from '../templates/challenges/index'
+import { ChallengesProps } from '../templates/challenges/index'
+import { getChallenges } from '../services/challenges/challenges.service'
 
 const ChallengesPage = ({ challenges }: ChallengesProps) => {
     return (
@@ -10,15 +10,14 @@ const ChallengesPage = ({ challenges }: ChallengesProps) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const challengesUrl = 'https://jsonplaceholder.typicode.com/posts'
-    const challengesFromApi = await axios.get(challengesUrl)
-    const challenges: IChallenges[] = challengesFromApi.data
+    const challenges = await getChallenges()
 
     if (!challenges) {
         return {
             notFound: true,
         };
     }
+
     return {
         props: { challenges: challenges },
     }
