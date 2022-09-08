@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
 
     return {
-        props: { challenges: challenges },
+        props: {challenges: challenges },
     }
 }
 
