@@ -1,7 +1,5 @@
-export interface IChallenge {
-    id: number
-}
-
-export interface ChallengeProps {
-    challenge: IChallenge[]
+export enum ChallengeTabs {
+    DESCRIPTION = "description",
+    DELIVERABLES = "deliverables",
+    RANKING = "ranking"
 }
