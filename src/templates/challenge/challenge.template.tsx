@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import Image from 'next/image'
 
-import { Box, Button, MaterialIcon, Tooltip, Typography } from '@gama-academy/smash-web'
+import { Box } from '@gama-academy/smash-web'
 import { Header } from '../../components/header';
 import { Footer } from "../../components/footer";
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import ChallengeTemplate from '../../templates/challenge/challenge.template';
+import ChallengeTemplate from '../../../templates/challenge/challenge.template';
 
 const Challenge = () => {
     return (
