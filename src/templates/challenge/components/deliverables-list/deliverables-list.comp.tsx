@@ -1,4 +1,4 @@
-import { Box, Card, MaterialIcon, Typography } from '@gama-academy/smash-web'
+import { Box, Card, MaterialIcon, Modal, Typography } from '@gama-academy/smash-web'
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
 
