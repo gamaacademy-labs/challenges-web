@@ -1,15 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { Box, Button, Card, MaterialIcon, Tabs, Tooltip, Typography } from '@gama-academy/smash-web';
+import { Box, MaterialIcon, Tooltip, Typography } from '@gama-academy/smash-web';
 
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
 
 import { RankingList } from '../ranking-list/ranking-list.comp';
-import * as Styles from './challenge-sidebar.styles'
+import ListTabs from '../../../../components/list-tabs/list-tabs.comp';
 import { ChallengeSidebarProps } from './challenge-sidebar.types';
-import { ChallengeTabs } from '../../challenge.types';
 
 const ChallengeSidebar = (props: ChallengeSidebarProps) => {
 
@@ -40,14 +39,6 @@ const ChallengeSidebar = (props: ChallengeSidebarProps) => {
             title: "Ranking"
         },
     ]
-
-    function renderTabItem(title: string, active: boolean) {
-        return (
-            <Styles.TabItemContainer active={active} px="4" py="1">
-                <Typography fontSize="2" color={active ? "white" : "greyDark.7"}>{title}</Typography>
-            </Styles.TabItemContainer>
-        )
-    }
 
     return (
         <Box width={width > MOBILE_BREAKPOINT ? 300 : "100%"} margin="2" padding="2">
@@ -91,34 +82,10 @@ const ChallengeSidebar = (props: ChallengeSidebarProps) => {
                         </Box>
                     </Tooltip>
                     <Box mt="3">
-                        <Tabs default={tabs[0].id}>
-                            <Box>
-                                <Card
-                                    shadowBehavior='never'
-                                    borderRadius="4"
-                                    padding="none"
-                                    py="1"
-                                    px="1"
-                                >
-                                    <Tabs.Bar
-                                        thickness={0}
-                                        color="secondary.4"
-                                    >
-                                        {
-                                            tabs.map((tab, index) => (
-                                                <Tabs.Item
-                                                    onClick={() => props.onChange(tab.id as ChallengeTabs)}
-                                                    key={tab.id + index}
-                                                    id={tab.id}
-                                                    content={<></>}
-                                                    renderTab={({ active }) => renderTabItem(tab.title, !!active)}
-                                                />
-                                            ))
-                                        }
-                                    </Tabs.Bar>
-                                </Card>
-                            </Box>
-                        </Tabs>
+                        <ListTabs
+                            tabs={tabs}
+                            onChange={(target) => props.onChange(target)}
+                        />
                     </Box>
                     </Box>
                 )

@@ -1,8 +1,5 @@
-export interface IChallenges {
-    id: number
-    title: string
-}
+import { Challenge } from "../../services/challenges/challenges.types";
 
 export interface ChallengesProps {
-    challenges: IChallenges[]
+    challenges: Challenge[]
 }
