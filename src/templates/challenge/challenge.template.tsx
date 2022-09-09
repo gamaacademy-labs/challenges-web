@@ -4,7 +4,7 @@ import { Box } from '@gama-academy/smash-web'
 import { Header } from '../../components/header';
 import { Footer } from "../../components/footer";
 
-import { DeliverablesList } from './components/deliverables-list/deliverables-list.comp';
+import DeliverablesList from './components/deliverables-list/deliverables-list.comp';
 import ChallengeSidebar from './components/challenge-sidebar/challenge-sidebar.comp';
 import DescriptionTab from './components/description-tab/description-tab.comp';
 import { useDimensions } from '../../hooks/layout/use-dimensions.hook';
