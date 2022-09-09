@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { RankingListProps } from './ranking-list.types';
 
 export const RankingList = ({ data }:RankingListProps ) => {
-    if(!data) return <></>
+
     return (
         <Box px="2">
             <Typography fontWeight="bold" color="brand.secondary">

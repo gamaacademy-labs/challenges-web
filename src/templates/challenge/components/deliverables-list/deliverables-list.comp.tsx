@@ -4,11 +4,9 @@ import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
 
 import { DeliverableListProps } from './deliverables-list.types';
 
-export const DeliverablesList = ({ data }: DeliverableListProps) => { 
+const DeliverablesList = ({ data }: DeliverableListProps) => { 
   
   const { width } = useDimensions()
-  
-  if(!data) return <></>
 
   return (
     <Box px="2">
@@ -69,3 +67,5 @@ export const DeliverablesList = ({ data }: DeliverableListProps) => {
     </Box>
   )
 };
+
+export default DeliverablesList
