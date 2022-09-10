@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Button, Icon, Modal, Tooltip, Typography } from '@gama-academy/smash-web';
-import { Footer } from '../../components/footer';
+import { Box, Icon, Modal, Tooltip, Typography } from '@gama-academy/smash-web';
 import { Header } from '../../components/header';
 import { useDimensions } from '../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../utils/responsive';
@@ -17,7 +16,6 @@ import StartFooter from './components/start-footer/start-footer.comp';
 const StartChallengeTemplate = () => {
 
     const [selectedTab, setSelectedTab] = useState<StartChallengeTabs>(StartChallengeTabs.DESCRIPTION)
-const [onOpen, onClose] = useState(true)
 
     const { width } = useDimensions()
 

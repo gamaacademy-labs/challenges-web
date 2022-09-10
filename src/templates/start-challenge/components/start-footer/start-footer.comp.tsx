@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Icon, Typography, Button, Box, MaterialIcon } from '@gama-academy/smash-web';
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
 import Image from 'next/image'
 import * as Styles from './start-footer.styles';
-import { ModalBody, ModalFooter, ModalHeader, useModal, } from '../../../../components/modal';
-import Modal from '../../../../components/modal/modal.comp';
+import { StartOrientationModal } from '../start-modal/start-orientation-modal.comp';
+
 
 const StartFooter: React.FC = () => {
 
-    const { isShowing, toggle } = useModal();
+ const [orientationModalVisible, setOrientationModalVisible] = useState(false)
 
     const { width } = useDimensions()
 
@@ -51,7 +51,7 @@ const StartFooter: React.FC = () => {
 
             <Button
                 color="white"
-                onClick={toggle}
+                onClick={ () => setOrientationModalVisible(true)}
                 fluid={isMobile ? true : false}
             >
                 <Typography mr="1" color="greyDark.4" fontWeight="bold">Iniciar desafio</Typography>
@@ -59,36 +59,9 @@ const StartFooter: React.FC = () => {
                 <MaterialIcon name="flag"  shapeBackground="primary.3" shape="round"
                 />
             </Button>
-            <Modal {...{ isShowing, toggle }}>
-                <ModalHeader {...{ toggle }}>
-                    <Image src="/img/ilustracao-modal.png" width="150" alt="ilustracao-modal" height="135" />
-                </ModalHeader>
-                <ModalBody>
-                    <Styles.modalDescription>
-                        <Typography type="title" px="2" mt="2" mb="2" align="center">
-                            Adicione os entregáveis
-                        </Typography>
-                        <Typography align="center">
-                            Para finalizar o desafio você precisa adicionar todos os entregáveis.
-                        </Typography>
-                    </Styles.modalDescription>
 
-                </ModalBody>
-                <ModalFooter>
-                    <Styles.BoxModal>
-                        <Button
-
-                            color="violet.4"
-                            onClick={toggle}
-                            fluid
-                            variant="filled"
-                        >
-                            Entendi
-                        </Button>
-                    </Styles.BoxModal>
-
-                </ModalFooter>
-            </Modal>
+<StartOrientationModal visible={orientationModalVisible} close={()=> setOrientationModalVisible(false)}  />
+           
         </Styles.Container>
     )
 }
