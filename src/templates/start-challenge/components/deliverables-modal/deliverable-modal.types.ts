@@ -12,3 +12,8 @@ export type Deliverable = {
 export interface DeliverableListProps {
   data: Deliverable[]
 }
+
+export type DeliverableForm = {
+  explanation: string
+  link: string
+}
