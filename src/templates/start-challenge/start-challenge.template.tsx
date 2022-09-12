@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Icon, Tooltip, Typography } from '@gama-academy/smash-web';
-import { Footer } from '../../components/footer';
+import { Box, Icon, Modal, Tooltip, Typography } from '@gama-academy/smash-web';
 import { Header } from '../../components/header';
 import { useDimensions } from '../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../utils/responsive';
@@ -110,6 +109,8 @@ const StartChallengeTemplate = () => {
                     }
                 </Box>
             </Box>
+
+        
             <StartFooter/>
         </>
     )
