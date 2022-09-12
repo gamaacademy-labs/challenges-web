@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { Box, Button, MaterialIcon, Tooltip, Typography } from '@gama-academy/smash-web';
+import { Box, Button, MaterialIcon, Modal, Tooltip, Typography } from '@gama-academy/smash-web';
 import * as Styles from './description-tab.styles'
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
@@ -147,6 +147,7 @@ const DescriptionTab = () => {
                     </Button>
                 </Box>
             )}
+
         </Box>
     )
 }
