@@ -97,6 +97,10 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
                 value: 3000,
                 message: "O texto deve ter no máximo 3000 caracteres"
               },
+              minLength: {
+                value: 100,
+                message: "Este campo deve ter mo mínimo deve ter no 100  caracteres"
+              },
               required: {
                 value: true,
                 message: "O campo de defesa é obrigatório"
@@ -113,11 +117,10 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
               />
             )}
           />
-    
           <Typography mt="3" mb="3">
             Ante de entregar certifique-se de que o link está com acesso público.
           </Typography>
-              
+
           <Controller
             control={control}
             name="link"
@@ -160,12 +163,11 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
                 variant="filled"
               >
                 Salvar entregável
-              </Button>    
-        
+              </Button>
             </Box>
           </Box>
         </form>
-    </ModalBody>
+      </ModalBody>
     </Modal >
   )
 }
