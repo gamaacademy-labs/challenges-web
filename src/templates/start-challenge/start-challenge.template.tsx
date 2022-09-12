@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Icon, Tooltip, Typography } from '@gama-academy/smash-web';
-import { Footer } from '../../components/footer';
+import { Box, Icon, Tooltip, Typography,Button } from '@gama-academy/smash-web';
 import { Header } from '../../components/header';
 import { useDimensions } from '../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../utils/responsive';
@@ -12,6 +11,7 @@ import StartDescriptionTab from './components/start-description-tab/start-descri
 import StartSidebar from './components/start-sidebar/start-sidebar.comp';
 import { StartChallengeTabs } from './start-challenge.types';
 import StartFooter from './components/start-footer/start-footer.comp';
+import { DeliverableModal } from './components/deliverables-modal/deliverable-modal-comp';
 
 
 const StartChallengeTemplate = () => {
@@ -110,6 +110,8 @@ const StartChallengeTemplate = () => {
                     }
                 </Box>
             </Box>
+      
+
             <StartFooter/>
         </>
     )
