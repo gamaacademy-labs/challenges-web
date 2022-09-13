@@ -6,8 +6,9 @@ import * as Styles from './description-tab.styles'
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
 import { BsFillBarChartFill } from 'react-icons/bs';
+import { ChallengeProps } from '../../challenge.types';
 
-const DescriptionTab = () => {
+const DescriptionTab = ({ challenge }: ChallengeProps) => {
 
     const { width } = useDimensions()
 
@@ -102,7 +103,7 @@ const DescriptionTab = () => {
                         >
                             <Image src="/img/hipsterIcon.png" width="16" height="5" />
                         </Box>
-                        <Typography ml="2" type="title">Quem tem dados é rei!</Typography>
+                        <Typography ml="2" type="title">{challenge.title}</Typography>
                     </Box>
                 )
             }

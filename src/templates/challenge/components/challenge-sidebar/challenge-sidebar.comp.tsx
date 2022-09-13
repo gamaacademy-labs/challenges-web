@@ -11,7 +11,6 @@ import ListTabs from '../../../../components/list-tabs/list-tabs.comp';
 import { ChallengeSidebarProps } from './challenge-sidebar.types';
 
 const ChallengeSidebar = (props: ChallengeSidebarProps) => {
-
     const { width } = useDimensions()
 
     const rankingMock = [
@@ -65,7 +64,7 @@ const ChallengeSidebar = (props: ChallengeSidebarProps) => {
                         >
                             <Image src="/img/hipsterIcon.png" width="16" height="5" />
                         </Box>
-                        <Typography ml="2" type="title">Quem tem dados é rei!</Typography>
+                        <Typography ml="2" type="title">{props.challenge.title}</Typography>
                     </Box>
                     <Tooltip
                         alignment="start"

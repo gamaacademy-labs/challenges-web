@@ -1,6 +1,8 @@
-
 import React, { useState } from "react";
+<<<<<<< HEAD
 
+=======
+>>>>>>> d872f1b66957ccb757a2d0336ba98a1fdbf5b77a
 import { Box, Icon, Tooltip, Typography } from "@gama-academy/smash-web";
 import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
