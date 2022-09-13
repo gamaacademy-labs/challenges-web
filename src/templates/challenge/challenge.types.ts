@@ -1,9 +1,11 @@
-import { ChallengeById } from "./../../services/challenge/challenge.types";
+import { Challenge } from "../../services/challenges/challenges.types";
+
 export enum ChallengeTabs {
   DESCRIPTION = "description",
   DELIVERABLES = "deliverables",
   RANKING = "ranking",
 }
+
 export interface ChallengeProps {
-  challengeById: ChallengeById[];
+  challenge: Challenge;
 }

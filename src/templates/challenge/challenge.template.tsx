@@ -12,7 +12,8 @@ import { MOBILE_BREAKPOINT } from "../../utils/responsive";
 import { ChallengeProps, ChallengeTabs } from "./challenge.types";
 import { RankingList } from "./components/ranking-list/ranking-list.comp";
 
-const ChallengeTemplate = ({ challengeById }: ChallengeProps) => {
+const ChallengeTemplate = ({ challenge }: ChallengeProps) => {
+
   const rankingMock = [
     {
       name: "Morpheus",
@@ -57,7 +58,7 @@ const ChallengeTemplate = ({ challengeById }: ChallengeProps) => {
         >
           <Box width="858px" mr={width <= MOBILE_BREAKPOINT ? 0 : 5}>
             {(selectedTab === ChallengeTabs.DESCRIPTION ||
-              width > MOBILE_BREAKPOINT) && <DescriptionTab />}
+              width > MOBILE_BREAKPOINT) && <DescriptionTab challenge={challenge} />}
             {selectedTab === ChallengeTabs.DELIVERABLES &&
               width <= MOBILE_BREAKPOINT && (
                 <DeliverablesList data={deliverablesMock} />
@@ -68,7 +69,7 @@ const ChallengeTemplate = ({ challengeById }: ChallengeProps) => {
               <DeliverablesList data={deliverablesMock} />
             )}
           </Box>
-          <ChallengeSidebar onChange={setSelectedTab} />
+          <ChallengeSidebar onChange={setSelectedTab} challenge={challenge} />
         </Box>
       </Box>
       <Footer />
