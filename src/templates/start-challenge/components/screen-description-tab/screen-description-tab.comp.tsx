@@ -5,12 +5,16 @@ import {
   MaterialIcon,
   Typography,
 } from "@gama-academy/smash-web";
+import { useState } from 'react';
 import { useDimensions } from "../../../../hooks/layout/use-dimensions.hook";
 import { MOBILE_BREAKPOINT } from "../../../../utils/responsive";
 import { DeliverableListProps } from "../../../challenge/components/deliverables-list/deliverables-list.types";
+import { DeliverableModal } from '../deliverables-modal/deliverable-modal-comp';
 
 const DeliverablesList = ({ data }: DeliverableListProps) => {
   const { width } = useDimensions();
+
+  const [deliverableModalModalVisible, setDeliverableModalVisible] = useState(false)
 
   return (
     <Box px="2">
@@ -84,10 +88,11 @@ const DeliverablesList = ({ data }: DeliverableListProps) => {
                   size="1"
                   disableHoverEffect
                   color="brand.secondary"
-                  onClick={() => {}}
+                  onClick={() => setDeliverableModalVisible(true)}
                 >
                   Adicionar entregável
                 </Button>
+                <DeliverableModal visible={deliverableModalModalVisible} close={() => setDeliverableModalVisible(false)} />
               </Box>
             </Box>
           </Box>

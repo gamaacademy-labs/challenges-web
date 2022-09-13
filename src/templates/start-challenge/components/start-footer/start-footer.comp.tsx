@@ -10,7 +10,7 @@ import { StartOrientationModal } from '../start-modal/start-orientation-modal.co
 
 const StartFooter: React.FC = () => {
 
- const [orientationModalVisible, setOrientationModalVisible] = useState(false)
+    const [orientationModalVisible, setOrientationModalVisible] = useState(false)
 
     const { width } = useDimensions()
 
@@ -51,17 +51,17 @@ const StartFooter: React.FC = () => {
 
             <Button
                 color="white"
-                onClick={ () => setOrientationModalVisible(true)}
+                onClick={() => setOrientationModalVisible(true)}
                 fluid={isMobile ? true : false}
             >
                 <Typography mr="1" color="greyDark.4" fontWeight="bold">Iniciar desafio</Typography>
 
-                <MaterialIcon name="flag"  shapeBackground="primary.3" shape="round"
+                <MaterialIcon name="flag" shapeBackground="primary.3" shape="round"
                 />
             </Button>
 
-<StartOrientationModal visible={orientationModalVisible} close={()=> setOrientationModalVisible(false)}  />
-           
+            <StartOrientationModal visible={orientationModalVisible} close={() => setOrientationModalVisible(false)} />
+
         </Styles.Container>
     )
 }
