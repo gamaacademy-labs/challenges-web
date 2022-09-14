@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box } from "@gama-academy/smash-web";
 import { Header } from "../../components/header";
@@ -11,40 +11,28 @@ import { useDimensions } from "../../hooks/layout/use-dimensions.hook";
 import { MOBILE_BREAKPOINT } from "../../utils/responsive";
 import { ChallengeProps, ChallengeTabs } from "./challenge.types";
 import { RankingList } from "./components/ranking-list/ranking-list.comp";
+import { UserChallenge } from "../../services/userChallenge/userChallenge.types";
+import { getRankById } from "../../services/userChallenge/userChallenge.service";
 
 const ChallengeTemplate = ({ challenge }: ChallengeProps) => {
-
-  const rankingMock = [
-    {
-      name: "Morpheus",
-      value: 100,
-    },
-    {
-      name: "Lauras",
-      value: 10,
-    },
-  ];
-
   const [selectedTab, setSelectedTab] = useState<ChallengeTabs>(
     ChallengeTabs.DESCRIPTION
   );
 
+  const [ranking, setRanking] = useState<UserChallenge[]>([]);
+
+  const getChallengeRaking = async () => {
+    const newRanking = await getRankById(challenge.id);
+    setRanking(newRanking);
+    console.log(newRanking);
+  };
+
+  useEffect(() => {
+    getChallengeRaking();
+  }, []);
+
   const { width } = useDimensions();
 
-  const deliverablesMock = [
-    {
-      title: "{{Nome do entregável}}",
-      time: "Reserve 2 horas",
-      description:
-        "Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla",
-    },
-    {
-      title: "{{Nome do entregável 2}}",
-      time: "Reserve 2 horas",
-      description:
-        "Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla",
-    },
-  ];
   return (
     <>
       <Header />
@@ -58,18 +46,28 @@ const ChallengeTemplate = ({ challenge }: ChallengeProps) => {
         >
           <Box width="858px" mr={width <= MOBILE_BREAKPOINT ? 0 : 5}>
             {(selectedTab === ChallengeTabs.DESCRIPTION ||
-              width > MOBILE_BREAKPOINT) && <DescriptionTab challenge={challenge} />}
+              width > MOBILE_BREAKPOINT) && (
+              <DescriptionTab challenge={challenge} />
+            )}
             {selectedTab === ChallengeTabs.DELIVERABLES &&
               width <= MOBILE_BREAKPOINT && (
-                <DeliverablesList data={deliverablesMock} />
+                <DeliverablesList
+                  deliverables={challenge.challenge_deliverables || []}
+                />
               )}
             {selectedTab === ChallengeTabs.RANKING &&
-              width <= MOBILE_BREAKPOINT && <RankingList data={rankingMock} />}
+              width <= MOBILE_BREAKPOINT && <RankingList ranking={ranking} />}
             {width > MOBILE_BREAKPOINT && (
-              <DeliverablesList data={deliverablesMock} />
+              <DeliverablesList
+                deliverables={challenge.challenge_deliverables || []}
+              />
             )}
           </Box>
-          <ChallengeSidebar onChange={setSelectedTab} challenge={challenge} />
+          <ChallengeSidebar
+            onChange={setSelectedTab}
+            challenge={challenge}
+            ranking={ranking}
+          />
         </Box>
       </Box>
       <Footer />
