@@ -1,4 +1,4 @@
-export interface StartModalProps{
+export interface CongratulationProps{
   visible: boolean;
   close: () => void;
 }

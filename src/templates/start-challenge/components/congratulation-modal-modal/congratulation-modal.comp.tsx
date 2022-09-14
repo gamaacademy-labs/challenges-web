@@ -1,12 +1,14 @@
+import React from 'react'
 import Image from 'next/image'
 import { Box, Button, Icon, Modal, ModalBody, Typography } from '@gama-academy/smash-web'
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook'
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive'
-import { StartModalProps } from './congratulation-modal.types'
+import {CongratulationProps } from './congratulation-modaltypes'
 
 
-export const CongratulationModal = (props: StartModalProps) => {
-const nomeDodesafio = "{{nome do desafio}}"
+
+export const CongratulationModal = (props: CongratulationProps) => {
+  const nomeDodesafio = "{{nome do desafio}}"
   const { width } = useDimensions()
 
   return (
@@ -27,10 +29,10 @@ const nomeDodesafio = "{{nome do desafio}}"
             </Box>
           </Box>
           <Typography type="title" px="2" mt="3" mb="2" align="center">
-          Desafio finalizado com sucesso!
+            Desafio finalizado com sucesso!
           </Typography>
           <Typography align="center" mt="2" type='tips'>
-          Parabéns, desafio {nomeDodesafio} concluido.
+            Parabéns, desafio {nomeDodesafio} concluido.
           </Typography>
           <Button
             mt="5"
@@ -39,7 +41,7 @@ const nomeDodesafio = "{{nome do desafio}}"
             fluid
             variant="filled"
           >
-           Acessar Gabarito
+            Acessar Gabarito
           </Button>
         </Box>
       </ModalBody>
