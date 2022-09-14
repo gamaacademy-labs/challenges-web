@@ -18,6 +18,7 @@ import {
   DeliverableModalProps,
 } from "./deliverable-modal.types";
 import { postDeliverable } from "../../../../services/deliverables/deliverables.service";
+import { putDeliverable } from '../../../../services/update-deliverables/deliverables.service';
 
 export const DeliverableModal = (props: DeliverableModalProps) => {
   const [loading, setLoading] = useState(false);
@@ -36,6 +37,24 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
       setError(null);
       setLoading(true);
       await postDeliverable({
+        link: data.link,
+        explanation: data.explanation,
+        challengeDeliverableId: "28a6605a-42dd-4ba2-a948-4226035ccc99",
+      });
+      props.close();
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+    const putForm: SubmitHandler<DeliverableForm> = async (
+    data: DeliverableForm
+  ) => {
+    try {
+      setError(null);
+      setLoading(true);
+      await putDeliverable({
         link: data.link,
         explanation: data.explanation,
         challengeDeliverableId: "28a6605a-42dd-4ba2-a948-4226035ccc99",
