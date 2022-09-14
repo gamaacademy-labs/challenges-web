@@ -1,9 +1,7 @@
 import { Box, Card, Icon, MaterialIcon, Typography } from '@gama-academy/smash-web';
-import Image from 'next/image';
 import React from 'react';
 import { StartMaterialsTabProps } from './start-materials-tab.types';
 
-// import { Container } from './styles';
 
 const StartMaterialsTab = (props: StartMaterialsTabProps) => {
   return (
