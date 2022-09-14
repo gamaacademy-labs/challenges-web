@@ -39,6 +39,7 @@ const StartSidebar = () => {
                 borderRadius={8}
             >
                 <Image src="/img/image.png" width={300} alt="Logo" height={200} />
+            
             </Box>
         <Box pb="5" > <Feedback/> </Box>
         

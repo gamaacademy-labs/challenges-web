@@ -1,8 +1,5 @@
-export type Ranking = {
-    name: string
-    value: number
-}
+import { UserChallenge } from "../../../../services/userChallenge/userChallenge.types";
 
 export interface RankingListProps {
-    data: Ranking[]
+  ranking: UserChallenge[];
 }
