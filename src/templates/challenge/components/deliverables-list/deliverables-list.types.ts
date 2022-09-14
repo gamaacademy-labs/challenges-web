@@ -1,9 +1,5 @@
-export type Deliverable = {
-    title: string;
-    time?: string;
-    description: string
-}
+import { ChallengeDeliverable } from "./../../../../services/challenge/challenge.types";
 
 export interface DeliverableListProps {
-    data: Deliverable[]
+  deliverables: ChallengeDeliverable[];
 }
