@@ -7,6 +7,8 @@ import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
 
 import StartMaterialsTab from '../start-materials-tab/start-materials-tab.comp';
+import Feedback from '../feedback/feedback.comp';
+
 
 const StartSidebar = () => {
 
@@ -37,7 +39,13 @@ const StartSidebar = () => {
                 borderRadius={8}
             >
                 <Image src="/img/image.png" width={300} alt="Logo" height={200} />
+            
             </Box>
+
+            <Box pb="5">
+            <Feedback/>
+            </Box>
+
             {
                 width <= MOBILE_BREAKPOINT && (
                     <Box alignItems="flex-start">
