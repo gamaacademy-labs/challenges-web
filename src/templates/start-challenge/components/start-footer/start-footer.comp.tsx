@@ -63,6 +63,7 @@ const StartFooter = (props: StartFooterProps) => {
 
       <Button
         color="white"
+        disabled={!!props.userChallenge.finishedAt}
         onClick={() => {
           if (
             props.userDeliverables.length <

@@ -3,7 +3,7 @@ export type UserChallenge = {
   id: string;
   score: string;
   startedAt: string;
-  finishAt: string;
+  finishedAt: string;
   challengeId: string;
   userId: string;
   createdAt: string;
