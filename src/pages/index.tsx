@@ -1,13 +1,26 @@
-import type { NextPage } from 'next'
+import ChallengesTemplate from '../templates/challenges/challenges.template'
+import { GetServerSideProps } from 'next'
+import { ChallengesProps } from '../templates/challenges/index'
+import { getChallenges } from '../services/challenges/challenges.service'
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <h1>
-        ...
-      </h1>
-    </div>
-  )
+const HomePage = ({ challenges }: ChallengesProps) => {
+    return (
+        <ChallengesTemplate challenges={challenges} />
+    )
 }
 
-export default Home
+export const getServerSideProps: GetServerSideProps = async () => {
+    const challenges = await getChallenges()
+
+    if (!challenges) {
+        return {
+            notFound: true,
+        };
+    }
+
+    return {
+        props: {challenges: challenges },
+    }
+}
+
+export default HomePage

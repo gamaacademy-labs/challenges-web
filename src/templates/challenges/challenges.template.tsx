@@ -1,16 +1,51 @@
-import { Box, Typography } from '@gama-academy/smash-web'
-import React from 'react'
+import { Box, Button, Typography } from "@gama-academy/smash-web";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Header } from "../../components/header";
+import { Challenge } from "../../services/challenges/challenges.types";
+import { ChallengesProps } from './challenges.types';
 
-const ChallengesTemplate = () => {
+const ChallengesTemplate = ({ challenges }: ChallengesProps) => {
+
+  const router = useRouter()
+
   return (
-    <Box dir="row">
-      <Typography type='title' color='secondary.4'>Desafio 1</Typography>
-      <Typography type='title' color='secondary.4'>Desafio 2</Typography>
-      <Typography type='title' color='secondary.4'>Desafio 3</Typography>
-      <Typography type='title' color='secondary.4'>Desafio 4</Typography>
-      <Typography type='title' color='secondary.4'>Desafio 5</Typography>
-    </Box>
-  )
-}
+    <>
+      <Header />
+      <Typography fontFamily={"monospace"} align="center">
+        <h1>Desafios</h1>
+      </Typography>
+      <Box alignment="center" margin="lg" dir="column">
+        {challenges.map((challenge: Challenge) => {
+          return (
+            <Box
+              className="hoverEffect"
+              width="75vw"
+              padding="4"
+              borderRadius="10px"
+              border="1px solid #D7DBDA"
+              justifyContent="space-between"
+              alignment="center"
+              margin="2"
+              dir="row"
+              key={challenge.id}
+            >
+              <Typography fontFamily={"raniway"} tag="p" align="center">
+                {challenge.title}
+              </Typography>
+              <Box>
+                <Link href={`/desafio/${challenge.id}`}>
+                  <Button onClick={() => {}} buttonType="button" size="1">
+                    Ver desafio
+                  </Button>
+                </Link>
+              </Box>
+            </Box>
+          );
+        }).reverse()}
+      </Box>
+    </>
+  );
+};
 
-export default ChallengesTemplate
+export default ChallengesTemplate;
