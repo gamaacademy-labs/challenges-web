@@ -17,8 +17,8 @@ import {
 import StartFooter from "./components/start-footer/start-footer.comp";
 import ScreenDescriptionTab from "./components/screen-description-tab/screen-description-tab.comp";
 import StartMaterialsTab from "./components/start-materials-tab/start-materials-tab.comp";
-import { UserDeliverables } from '../../services/deliverables/deliverable.types';
-import { getUserDeliverables } from '../../services/deliverables/deliverables.service';
+import { UserDeliverables } from "../../services/deliverables/deliverable.types";
+import { getUserDeliverables } from "../../services/deliverables/deliverables.service";
 
 const StartChallengeTemplate = ({
   challenge,
@@ -29,9 +29,8 @@ const StartChallengeTemplate = ({
     StartChallengeTabs.DESCRIPTION
   );
 
-  const [userDeliverables, setUserDeliverables] = useState<UserDeliverables[]>()
-
-  
+  const [userDeliverables, setUserDeliverables] =
+    useState<UserDeliverables[]>();
 
   const { width } = useDimensions();
 
@@ -48,13 +47,13 @@ const StartChallengeTemplate = ({
     },
   ];
 
-  const loadUserDeliverables = async () =>  {
-    let newUserDeliverables = await getUserDeliverables(userChallenge.id)
-    setUserDeliverables(newUserDeliverables)
-  }
- useEffect(() => {
-  loadUserDeliverables()
- },[])
+  const loadUserDeliverables = async () => {
+    let newUserDeliverables = await getUserDeliverables(userChallenge.id);
+    setUserDeliverables(newUserDeliverables);
+  };
+  useEffect(() => {
+    loadUserDeliverables();
+  }, []);
   return (
     <>
       <Header />
@@ -162,8 +161,8 @@ const StartChallengeTemplate = ({
             )}
             {selectedTab === StartChallengeTabs.DELIVERABLES && (
               <ScreenDescriptionTab
-              refresh={loadUserDeliverables}
-              userDeliverables={userDeliverables || []}
+                refresh={loadUserDeliverables}
+                userDeliverables={userDeliverables || []}
                 deliverables={challenge.challenge_deliverables || []}
               />
             )}
@@ -173,7 +172,11 @@ const StartChallengeTemplate = ({
           )}
         </Box>
       </Box>
-      <StartFooter />
+      <StartFooter
+        challenge={challenge}
+        userChallenge={userChallenge}
+        userDeliverables={userDeliverables || []}
+      />
     </>
   );
 };
