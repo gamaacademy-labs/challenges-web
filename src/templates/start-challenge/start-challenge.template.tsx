@@ -161,6 +161,7 @@ const StartChallengeTemplate = ({
             )}
             {selectedTab === StartChallengeTabs.DELIVERABLES && (
               <ScreenDescriptionTab
+                userChallenge={userChallenge}
                 refresh={loadUserDeliverables}
                 userDeliverables={userDeliverables || []}
                 deliverables={challenge.challenge_deliverables || []}

@@ -32,6 +32,7 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
   const submitForm: SubmitHandler<DeliverableForm> = async (
     data: DeliverableForm
   ) => {
+    if(props.userChallenge.finishedAt) return
     try {
       setError(null);
       setLoading(true);
@@ -203,18 +204,20 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
             >
               Cancelar
             </Button>
-            <Box mt="3">
-              <Button
-                buttonType="submit"
-                fluid={width <= MOBILE_BREAKPOINT ? true : false}
-                color="violet.4"
-                onClick={() => trigger()}
-                size="2"
-                variant="filled"
-              >
-                Salvar entregável
-              </Button>
-            </Box>
+            {!props.userChallenge.finishedAt && (
+              <Box mt="3">
+                <Button
+                  buttonType="submit"
+                  fluid={width <= MOBILE_BREAKPOINT ? true : false}
+                  color="violet.4"
+                  onClick={() => trigger()}
+                  size="2"
+                  variant="filled"
+                >
+                  Salvar entregável
+                </Button>
+              </Box>
+            )}
           </Box>
         </form>
       </ModalBody>

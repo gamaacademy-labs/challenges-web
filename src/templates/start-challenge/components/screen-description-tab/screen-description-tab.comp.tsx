@@ -13,7 +13,7 @@ import { MOBILE_BREAKPOINT } from "../../../../utils/responsive";
 import { DeliverableModal } from "../deliverables-modal/deliverable-modal-comp";
 import { ScreenDescriptionTabProps } from './screen-description-tab.types';
 
-const DeliverablesList = ({ deliverables, userDeliverables, refresh }: ScreenDescriptionTabProps) => {
+const DeliverablesList = ({ deliverables, userDeliverables, refresh, userChallenge }: ScreenDescriptionTabProps) => {
   const { width } = useDimensions();
   const [selectDeliverable, setSelectDeliverable] = useState<ChallengeDeliverable>()
   const [selectExist, setSelectExist] = useState<UserDeliverables>()
@@ -104,7 +104,7 @@ const DeliverablesList = ({ deliverables, userDeliverables, refresh }: ScreenDes
                     }
                     }
                   >
-                    {exist ? "Ver entrega" : "Adicionar entregável"}
+                    {exist || userChallenge.finishedAt ? "Ver entrega" : "Adicionar entregável"}
                   </Button>
                 </Box>
               </Box>
@@ -113,6 +113,7 @@ const DeliverablesList = ({ deliverables, userDeliverables, refresh }: ScreenDes
         )
       })}
       <DeliverableModal
+        userChallenge={userChallenge}
         deliverable={selectDeliverable}
         visible={deliverableModalModalVisible}
         close={() =>{
