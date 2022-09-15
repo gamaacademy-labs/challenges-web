@@ -1,11 +1,15 @@
 import axios from "axios";
-import { GetChallengesResponse } from "./challenges.types";
+import { GetChallengesResponse, Material } from "./challenges.types";
 
 const getChallenges = async (): Promise<GetChallengesResponse> => {
-    const response = await axios.get('http://18.231.74.183/challenges') 
-    return response.data
-}
+  const response = await axios.get("http://18.231.74.183/challenges");
+  return response.data;
+};
+const getMaterials = async (challengeId: string): Promise<Material[]> => {
+  const response = await axios.get(
+    `http://18.231.74.183/materials/${challengeId}`
+  );
+  return response.data;
+};
 
-export {
-    getChallenges
-}
+export { getChallenges, getMaterials };
