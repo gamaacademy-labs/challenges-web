@@ -43,7 +43,7 @@ const StartFooter: React.FC = () => {
                     ml="3"
                     minWidth={200}
                 >
-                    <Box></Box>
+                   
                 </Box>
                 <Typography color='white' mx="3">0%</Typography>
             </Box>
