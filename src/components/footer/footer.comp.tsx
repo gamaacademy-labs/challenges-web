@@ -5,9 +5,13 @@ import * as Styles from './footer.styles'
 
 import { MOBILE_BREAKPOINT } from '../../utils/responsive';
 import { useDimensions } from '../../hooks/layout/use-dimensions.hook';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export const Footer = () => {
   const { width } = useDimensions()
+
+  const router = useRouter()
 
   return (  
     <Styles.Container
@@ -18,14 +22,16 @@ export const Footer = () => {
       justifyContent="flex-end"
       dir="row"
     >
-      <Button
-        color="white"
-        onClick={() => {}}
-        fluid={width <= MOBILE_BREAKPOINT ? true : false}
-      >
-        <Typography mr="1" color="greyDark.4" fontWeight="bold">Iniciar desafio</Typography>
-        <MaterialIcon name="play_circle_filled" shape="none" color="primary.3" type="round"/>
-      </Button>
+      <Link href={`${router.query.id}/iniciar`}>
+        <Button
+          color="white"
+          onClick={() => {}}
+          fluid={width <= MOBILE_BREAKPOINT ? true : false}
+        >
+          <Typography mr="1" color="greyDark.4" fontWeight="bold">Iniciar desafio</Typography>
+          <MaterialIcon name="play_circle_filled" shape="none" color="primary.3" type="round"/>
+        </Button>
+      </Link>
     </Styles.Container>
   );
 }
