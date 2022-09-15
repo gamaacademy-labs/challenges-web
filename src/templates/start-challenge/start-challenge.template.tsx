@@ -10,11 +10,19 @@ import ListTabs from "../../components/list-tabs/list-tabs.comp";
 import { TabItem } from "../../components/list-tabs";
 import StartDescriptionTab from "./components/start-description-tab/start-description-tab.comp";
 import StartSidebar from "./components/start-sidebar/start-sidebar.comp";
-import { StartChallengeTabs } from "./start-challenge.types";
+import {
+  StartChallengeTabs,
+  StartChallengeTemplateProps,
+} from "./start-challenge.types";
 import StartFooter from "./components/start-footer/start-footer.comp";
 import ScreenDescriptionTab from "./components/screen-description-tab/screen-description-tab.comp";
+import StartMaterialsTab from "./components/start-materials-tab/start-materials-tab.comp";
 
-const StartChallengeTemplate = () => {
+const StartChallengeTemplate = ({
+  challenge,
+  userChallenge,
+  materials,
+}: StartChallengeTemplateProps) => {
   const [selectedTab, setSelectedTab] = useState<StartChallengeTabs>(
     StartChallengeTabs.DESCRIPTION
   );
@@ -31,20 +39,6 @@ const StartChallengeTemplate = () => {
     {
       id: "deliverables",
       title: "Entregáveis",
-    },
-  ];
-  const deliverablesMock = [
-    {
-      title: "{{Nome do entregável}}",
-      time: "Reserve 2 horas",
-      description:
-        "Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla",
-    },
-    {
-      title: "{{Nome do entregável 2}}",
-      time: "Reserve 2 horas",
-      description:
-        "Nulla scelerisque libero vitae ex convallis congue. Praesent ut dignissim mi. Quisque lobortis pellentesque magna id malesuada. Proin sed urna porttitor, dapibus purus quis, malesuada nulla",
     },
   ];
 
@@ -88,7 +82,7 @@ const StartChallengeTemplate = () => {
                 <Image src="/img/hipsterIcon.png" width="16" height="5" />
               </Box>
               <Typography ml="2" type="title">
-                Quem tem dados é rei!
+                {challenge.description}
               </Typography>
             </Box>
             {isMobile && (
@@ -127,21 +121,41 @@ const StartChallengeTemplate = () => {
             )}
             <Box mt="4">
               <ListTabs
-                tabs={tabs}
+                tabs={
+                  isMobile
+                    ? [
+                        ...tabs,
+                        {
+                          title: "Material Complementar",
+                          id: "materialcomplementar",
+                        },
+                      ]
+                    : tabs
+                }
                 onChange={(target) =>
                   setSelectedTab(target as StartChallengeTabs)
                 }
               />
             </Box>
+            {selectedTab === StartChallengeTabs.MATERIALS && isMobile && (
+              <StartMaterialsTab materials={materials} />
+            )}
             {selectedTab === StartChallengeTabs.DESCRIPTION && (
-              <StartDescriptionTab />
-            ) ? (
-              <StartDescriptionTab />
-            ) : (
-              <ScreenDescriptionTab data={deliverablesMock} />
+              <StartDescriptionTab
+                challenge={challenge}
+                userChallenge={userChallenge}
+                materials={materials}
+              />
+            )}
+            {selectedTab === StartChallengeTabs.DELIVERABLES && (
+              <ScreenDescriptionTab
+                deliverables={challenge.challenge_deliverables || []}
+              />
             )}
           </Box>
-          {!isMobile && <StartSidebar />}
+          {!isMobile && (
+            <StartSidebar materials={materials} challenge={challenge} />
+          )}
         </Box>
       </Box>
       <StartFooter />

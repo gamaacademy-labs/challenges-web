@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <Navbar expand="md" style={{ borderBottom: '1px solid #e5e5e5', marginBottom: '50px' }}>
       <Container >
-        <Navbar.Brand href="home">
+        <Navbar.Brand href="/">
           <Image src="/img/Logo.png" width="135" alt="Logo" height="30" />
         </Navbar.Brand>
         
