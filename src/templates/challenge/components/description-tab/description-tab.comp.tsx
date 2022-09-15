@@ -18,6 +18,34 @@ import { ChallengeProps } from "../../challenge.types";
 const DescriptionTab = ({ challenge }: ChallengeProps) => {
   const { width } = useDimensions();
 
+  const getDateError = () => {
+    let today = new Date().getTime();
+    if (challenge.finishAt) {
+      if (today >= new Date(challenge.finishAt).getTime()) {
+        return "Tempo esgotado";
+      } else {
+        if (challenge.startedAt) {
+          if (today < new Date(challenge.startedAt).getTime()) {
+            return `Disponivel em: ${new Date(
+              challenge.startedAt
+            ).toLocaleDateString()} `;
+          }
+        }
+
+        return `Encerra em: ${new Date(
+          challenge.finishAt
+        ).toLocaleDateString()}`;
+      }
+    }
+    if (challenge.startedAt) {
+      if (today < new Date(challenge.startedAt).getTime()) {
+        return `Disponivel em: ${new Date(
+          challenge.startedAt
+        ).toLocaleDateString()} `;
+      }
+    }
+    return null;
+  };
   function renderDescriptionsTags() {
     return (
       <Box
@@ -109,21 +137,24 @@ const DescriptionTab = ({ challenge }: ChallengeProps) => {
   return (
     <Box px="2" width="100%">
       {width > MOBILE_BREAKPOINT && (
-        <Box dir="row">
-          <Box
-            width="24px"
-            height="24px"
-            borderRadius="4"
-            justifyContent="center"
-            alignItems="center"
-            backgroundColor="brand.primary"
-          >
-            <Image src="/img/hipsterIcon.png" width="16" height="5" />
+        <>
+          <Box dir="row">
+            <Box
+              width="24px"
+              height="24px"
+              borderRadius="4"
+              justifyContent="center"
+              alignItems="center"
+              backgroundColor="brand.primary"
+            >
+              <Image src="/img/hipsterIcon.png" width="16" height="5" />
+            </Box>
+            <Typography ml="2" type="title">
+              {challenge.title}
+            </Typography>
           </Box>
-          <Typography ml="2" type="title">
-            {challenge.title}
-          </Typography>
-        </Box>
+          {getDateError() && <Typography>{getDateError() || ""}</Typography>}
+        </>
       )}
       {width <= MOBILE_BREAKPOINT && renderDescriptionsTags()}
       <Typography type="description" mt="2">

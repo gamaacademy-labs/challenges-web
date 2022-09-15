@@ -27,6 +27,27 @@ const ChallengeTemplate = ({ challenge }: ChallengeProps) => {
     console.log(newRanking);
   };
 
+  const showStartButtom = () => {
+    let today = new Date().getTime();
+    if (challenge.finishAt) {
+      if (today >= new Date(challenge.finishAt).getTime()) {
+        return false;
+      } else {
+        if (challenge.startedAt) {
+          if (today < new Date(challenge.startedAt).getTime()) {
+            return false;
+          }
+        }
+      }
+    }
+    if (challenge.startedAt) {
+      if (today < new Date(challenge.startedAt).getTime()) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   useEffect(() => {
     getChallengeRaking();
   }, []);
@@ -70,7 +91,7 @@ const ChallengeTemplate = ({ challenge }: ChallengeProps) => {
           />
         </Box>
       </Box>
-      <Footer />
+      <Footer showButton={showStartButtom()} />
     </>
   );
 };
