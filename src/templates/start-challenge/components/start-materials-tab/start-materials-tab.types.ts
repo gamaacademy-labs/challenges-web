@@ -1,10 +1,4 @@
-export type Materials = {
-    id: string
-    title: string
-    type: string
-    description: string
-}
-
+import { Material } from "./../../../../services/challenges/challenges.types";
 export interface StartMaterialsTabProps {
-    materials: Materials[]
+  materials: Material[];
 }
