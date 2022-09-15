@@ -1,17 +1,21 @@
-import type { NextPage } from 'next'
-import { Header } from '../components/header/header.comp';
+import type { GetServerSideProps, NextPage } from 'next'
 
 
 const Home: NextPage = () => {
 
   return (
     <div>
-      <Header/>
-      <h1>
-        ...
-      </h1>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+      redirect: {
+        destination: "/desafios",
+        permanent: true
+      }
+  }
 }
 
 export default Home
