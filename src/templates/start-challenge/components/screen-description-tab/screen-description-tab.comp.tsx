@@ -5,21 +5,22 @@ import {
   MaterialIcon,
   Typography,
 } from "@gama-academy/smash-web";
-import { useState } from 'react';
+import { useState } from "react";
 import { useDimensions } from "../../../../hooks/layout/use-dimensions.hook";
 import { MOBILE_BREAKPOINT } from "../../../../utils/responsive";
 import { DeliverableListProps } from "../../../challenge/components/deliverables-list/deliverables-list.types";
-import { DeliverableModal } from '../deliverables-modal/deliverable-modal-comp';
+import { DeliverableModal } from "../deliverables-modal/deliverable-modal-comp";
 
-const DeliverablesList = ({ data }: DeliverableListProps) => {
+const DeliverablesList = ({ deliverables }: DeliverableListProps) => {
   const { width } = useDimensions();
 
-  const [deliverableModalModalVisible, setDeliverableModalVisible] = useState(false)
+  const [deliverableModalModalVisible, setDeliverableModalVisible] =
+    useState(false);
 
   return (
     <Box px="2">
-      {data.map((deliverable, index) => (
-        <Card shadowBehavior="never" padding={0} mt={3} key={index.toString()}>
+      {deliverables.map((deliverable) => (
+        <Card shadowBehavior="never" padding={0} mt={3} key={deliverable.id}>
           <Box
             padding="5"
             dir={width <= MOBILE_BREAKPOINT ? "column" : "row"}
@@ -51,7 +52,7 @@ const DeliverablesList = ({ data }: DeliverableListProps) => {
             >
               <MaterialIcon name="schedule" size={20} color="brand.secondary" />
               <Typography type="tips" ml="1">
-                {deliverable.time}
+                Reserve {String(deliverable.averageTime)} minutos
               </Typography>
             </Box>
           </Box>
@@ -92,7 +93,10 @@ const DeliverablesList = ({ data }: DeliverableListProps) => {
                 >
                   Adicionar entregável
                 </Button>
-                <DeliverableModal visible={deliverableModalModalVisible} close={() => setDeliverableModalVisible(false)} />
+                <DeliverableModal
+                  visible={deliverableModalModalVisible}
+                  close={() => setDeliverableModalVisible(false)}
+                />
               </Box>
             </Box>
           </Box>
