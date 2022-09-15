@@ -18,7 +18,7 @@ import {
   DeliverableModalProps,
 } from "./deliverable-modal.types";
 import { postDeliverable } from "../../../../services/deliverables/deliverables.service";
-import { putDeliverable } from '../../../../services/update-deliverables/deliverables.service';
+import { putDeliverable } from '../../../../services/update-deliverables/update-deliverables.service';
 
 export const DeliverableModal = (props: DeliverableModalProps) => {
   const [loading, setLoading] = useState(false);
