@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Icon, Typography, Button, Box, MaterialIcon } from '@gama-academy/smash-web';
 import { useDimensions } from '../../../../hooks/layout/use-dimensions.hook';
 import { MOBILE_BREAKPOINT } from '../../../../utils/responsive';
-import Image from 'next/image'
 import * as Styles from './start-footer.styles';
 import { StartOrientationModal } from '../start-modal/start-orientation-modal.comp';
 
