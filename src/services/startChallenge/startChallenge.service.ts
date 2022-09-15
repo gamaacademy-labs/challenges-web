@@ -5,7 +5,7 @@ const startChallengebyId = async (
   challengeId: string
 ): Promise<StartChallenge[]> => {
   const response = await axios.post(
-    `https://18.231.74.183/userchallenge/${challengeId}/start`,
+    `https://gama-challengers.com.br/userchallenge/${challengeId}/start`,
     null,
     {
       params: {

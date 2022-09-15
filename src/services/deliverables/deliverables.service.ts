@@ -2,7 +2,7 @@ import axios from "axios";
 import { PostDeliverablesRequest, PostDeliverablesResponse, PutDeliverablesRequest, UserDeliverables } from "./deliverable.types";
 
 const postDeliverable = async (data: PostDeliverablesRequest): Promise<PostDeliverablesResponse> => {
-    const response = await axios.post(`https://18.231.74.183/userDeliverable/${data.challengeDeliverableId}/deliverable`, {
+    const response = await axios.post(`https://gama-challengers.com.br/userDeliverable/${data.challengeDeliverableId}/deliverable`, {
         link: data.link,
         explanation: data.explanation
     }, {
@@ -14,14 +14,14 @@ const postDeliverable = async (data: PostDeliverablesRequest): Promise<PostDeliv
 }
 
 const putDeliverable = async (data: PutDeliverablesRequest): Promise<UserDeliverables> => {
-    const response = await axios.put(`https://18.231.74.183/userDeliverable/${data.userDeliverableId}/refresh`, {
+    const response = await axios.put(`https://gama-challengers.com.br/userDeliverable/${data.userDeliverableId}/refresh`, {
         link: data.link,
         explanation: data.explanation
     })
     return response.data
 }
 const getUserDeliverables = async (userChallengeId:string): Promise<UserDeliverables[]> => {
-    const response = await axios.get(`https://18.231.74.183/userDeliverables/${userChallengeId}`)
+    const response = await axios.get(`https://gama-challengers.com.br/userDeliverables/${userChallengeId}`)
      
     return response.data
 }
