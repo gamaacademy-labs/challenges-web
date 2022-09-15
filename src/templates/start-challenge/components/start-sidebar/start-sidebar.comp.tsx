@@ -8,7 +8,6 @@ import { MOBILE_BREAKPOINT } from "../../../../utils/responsive";
 
 import StartMaterialsTab from "../start-materials-tab/start-materials-tab.comp";
 import Feedback from "../feedback/feedback.comp";
-import { StartChallengeTemplateProps } from "../../start-challenge.types";
 import { StartSideBarChallengeTemplateProps } from "./start-sidebar.types";
 
 const StartSidebar = ({

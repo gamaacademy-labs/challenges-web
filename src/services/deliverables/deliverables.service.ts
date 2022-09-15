@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PostDeliverablesRequest, PostDeliverablesResponse } from "./deliverable.types";
+import { PostDeliverablesRequest, PostDeliverablesResponse, PutDeliverablesRequest, UserDeliverables } from "./deliverable.types";
 
 const postDeliverable = async (data: PostDeliverablesRequest): Promise<PostDeliverablesResponse> => {
     const response = await axios.post(`http://18.231.74.183/userDeliverable/${data.challengeDeliverableId}/deliverable`, {
@@ -7,11 +7,27 @@ const postDeliverable = async (data: PostDeliverablesRequest): Promise<PostDeliv
         explanation: data.explanation
     }, {
         params: {
-            userId: "db1526a7-907f-4d47-b284-d4186e4c5c98"
+            userId: "2ee62d21-8957-4004-a3d5-b7f8220354b9"
         }
     })
     return response.data
 }
+
+const putDeliverable = async (data: PutDeliverablesRequest): Promise<UserDeliverables> => {
+    const response = await axios.put(`http://18.231.74.183/userDeliverable/${data.userDeliverableId}/refresh`, {
+        link: data.link,
+        explanation: data.explanation
+    })
+    return response.data
+}
+const getUserDeliverables = async (userChallengeId:string): Promise<UserDeliverables[]> => {
+    const response = await axios.get(`http://18.231.74.183/userDeliverables/${userChallengeId}`)
+     
+    return response.data
+}
+
 export {
-    postDeliverable
+    getUserDeliverables,
+    postDeliverable, 
+    putDeliverable
 }

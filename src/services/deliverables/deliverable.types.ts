@@ -1,4 +1,3 @@
-
 export type UserDeliverables = {
     id:	string
     link:string
@@ -14,5 +13,10 @@ export type PostDeliverablesRequest = {
     link:string
     explanation	:string
     challengeDeliverableId:string
+}
+export type PutDeliverablesRequest = {
+    link:string
+    explanation	:string
+    userDeliverableId:string
 }
 

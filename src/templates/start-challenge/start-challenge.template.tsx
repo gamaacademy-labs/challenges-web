@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Icon, Tooltip, Typography } from "@gama-academy/smash-web";
 import { Footer } from "../../components/footer";
@@ -17,6 +17,8 @@ import {
 import StartFooter from "./components/start-footer/start-footer.comp";
 import ScreenDescriptionTab from "./components/screen-description-tab/screen-description-tab.comp";
 import StartMaterialsTab from "./components/start-materials-tab/start-materials-tab.comp";
+import { UserDeliverables } from '../../services/deliverables/deliverable.types';
+import { getUserDeliverables } from '../../services/deliverables/deliverables.service';
 
 const StartChallengeTemplate = ({
   challenge,
@@ -26,6 +28,10 @@ const StartChallengeTemplate = ({
   const [selectedTab, setSelectedTab] = useState<StartChallengeTabs>(
     StartChallengeTabs.DESCRIPTION
   );
+
+  const [userDeliverables, setUserDeliverables] = useState<UserDeliverables[]>()
+
+  
 
   const { width } = useDimensions();
 
@@ -42,6 +48,13 @@ const StartChallengeTemplate = ({
     },
   ];
 
+  const loadUserDeliverables = async () =>  {
+    let newUserDeliverables = await getUserDeliverables(userChallenge.id)
+    setUserDeliverables(newUserDeliverables)
+  }
+ useEffect(() => {
+  loadUserDeliverables()
+ },[])
   return (
     <>
       <Header />
@@ -149,6 +162,8 @@ const StartChallengeTemplate = ({
             )}
             {selectedTab === StartChallengeTabs.DELIVERABLES && (
               <ScreenDescriptionTab
+              refresh={loadUserDeliverables}
+              userDeliverables={userDeliverables || []}
                 deliverables={challenge.challenge_deliverables || []}
               />
             )}

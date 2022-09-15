@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -17,15 +17,14 @@ import {
   DeliverableForm,
   DeliverableModalProps,
 } from "./deliverable-modal.types";
-import { postDeliverable } from "../../../../services/deliverables/deliverables.service";
-import { putDeliverable } from '../../../../services/update-deliverables/update-deliverables.service';
+import { postDeliverable, putDeliverable } from "../../../../services/deliverables/deliverables.service";
 
 export const DeliverableModal = (props: DeliverableModalProps) => {
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(null);
 
-  const { control, handleSubmit, trigger, formState } =
+  const { control, handleSubmit, trigger, formState, setValue } =
     useForm<DeliverableForm>();
 
   const { width } = useDimensions();
@@ -36,11 +35,21 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
     try {
       setError(null);
       setLoading(true);
-      await postDeliverable({
-        link: data.link,
-        explanation: data.explanation,
-        challengeDeliverableId: "28a6605a-42dd-4ba2-a948-4226035ccc99",
-      });
+      if(props.userDeliverable){
+        await putDeliverable({
+          link: data.link,
+          explanation: data.explanation,
+         userDeliverableId: props.userDeliverable?.id || "",
+        })
+      }else {
+        await postDeliverable({
+          link: data.link,
+          explanation: data.explanation,
+          challengeDeliverableId: props.deliverable?.id || "",
+        });
+
+      }
+     
       props.close();
     } catch (error: any) {
       setError(error.message);
@@ -48,25 +57,11 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
       setLoading(false);
     }
   }
-    const putForm: SubmitHandler<DeliverableForm> = async (
-    data: DeliverableForm
-  ) => {
-    try {
-      setError(null);
-      setLoading(true);
-      await putDeliverable({
-        link: data.link,
-        explanation: data.explanation,
-        challengeDeliverableId: "28a6605a-42dd-4ba2-a948-4226035ccc99",
-      });
-      props.close();
-    } catch (error: any) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
 
-  };
+  useEffect(() => {
+    setValue("explanation", props.userDeliverable?.explanation || "")
+    setValue("link", props.userDeliverable?.link || "")
+  }, [props.userDeliverable])
 
   return (
     <Modal size="800px" open={props.visible} onClose={() => props.close()}>
@@ -92,26 +87,24 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
                 >
                   <MaterialIcon name="task" size={20} color="brand.secondary" />
                 </Box>
-                <Typography type="title">Nome do entregável</Typography>
-           
+                <Typography type="title">{props.deliverable?.title}</Typography>
+
                 <Box
-                  dir="row"
-                  ml={width <= MOBILE_BREAKPOINT ? 0 : 4}
-                  mt={width <= MOBILE_BREAKPOINT ? 3 : 0}
-                  backgroundColor="grey.1"
-                  borderRadius="1"
-                  padding={1}
-                  alignItems="center"
-                >
-                  <MaterialIcon
-                    name="schedule"
-                    size={20}
-                    color="brand.secondary"
-                  />
-                  <Typography type="tips" ml="1">
-                    Reserve 2 horas
-                  </Typography>
-                </Box>
+                dir="row"
+                ml={width <= MOBILE_BREAKPOINT ? 0 : 4}
+                mt={width <= MOBILE_BREAKPOINT ? 3 : 0}
+                backgroundColor={props.userDeliverable ? "green.4" : "grey.1"}
+                borderRadius="1"
+                padding={1}
+                alignItems="center"
+              >
+                {!props.userDeliverable  && (
+                  <MaterialIcon name="schedule" size={20} color="brand.secondary" />
+                )}
+                <Typography type="tips" ml="1">
+                  {props.userDeliverable  ? " ✓ Salvo" : `Reserve ${String(props.deliverable?.averageTime)} minutos`}
+                </Typography>
+              </Box>
               </Box>
 
               <Button
@@ -127,14 +120,9 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
               </Button>
             </Box>
             <Box mt="3">
-                   {error && <Typography color="red.4">{error}</Typography>}
+              {error && <Typography color="red.4">{error}</Typography>}
               <Typography mb="2" type="description">
-                Uma planilha de dados com os principais KPIs do negócio
-                escolhido. Lembre-se, as planilhas também precisam ser claras e
-                objetivas pois é a partir delas que serão tomadas as decisões
-                estratégicas. Coloque os conteúdos relevantes em destaque e se
-                atente também ao design, isso vai garantir o seu uso intuitivo e
-                agradável.
+                {props.deliverable?.description}
               </Typography>
             </Box>
           </Box>
@@ -155,11 +143,7 @@ export const DeliverableModal = (props: DeliverableModalProps) => {
                 value: 3000,
                 message: "O texto deve ter no máximo 3000 caracteres",
               },
-              minLength: {
-                value: 100,
-                message:
-                  "Este campo deve ter mo mínimo deve ter no 100  caracteres",
-              },
+
               required: {
                 value: true,
                 message: "O campo de defesa é obrigatório",
